@@ -110,6 +110,7 @@ h1 {
   background-image: url(img/image-6.jpg), linear-gradient(#72dbf4, #72dbf4);
 }
 
+/* Glow class to be added on successful match */
 .glow {
 	box-shadow: 0 0 10px 2px rgb(233, 215, 255);
 }
