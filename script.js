@@ -152,11 +152,8 @@ function onCardFlipped(newlyFlippedCard) {
 		lastCardFlipped = null;
 		return;
 	}
-	// Otherwise, we have two matching cards.
 
-	// Step 4: Increment the match counter and optionally add a "glow" effect to the matching cards.
-	// Step 5: Play either the win audio or match audio based on whether the user has the number of matches needed to win.
-
+	// Play either the win audio or match audio based on whether the user has the number of matches needed to win.
 	if (doCardsMatch(lastCardFlipped, newlyFlippedCard)) {
 		incrementCounter(counters, document.getElementById("match-count"));
 
@@ -177,16 +174,11 @@ function onCardFlipped(newlyFlippedCard) {
 			newCardClass.remove("glow");
 		}, 1000);
 
-
-
-		// Step 6: Reset 'lastCardFlipped'.
+		// Reset 'lastCardFlipped'.
 		lastCardFlipped = null;
 		return;
 	}
-
-
 }
-
 
 // Set up the game.
 let cardObjects =
