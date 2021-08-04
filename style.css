@@ -171,14 +171,14 @@ h1 {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  border: 10px solid rgba(0, 0, 0, 0.17);
+  width: 40vw;
 }
 
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -187,4 +187,15 @@ h1 {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+h3.high-score {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.score {
+  color: #4f1e88;
+  text-shadow: none;
+  margin-left: 2rem;
 }

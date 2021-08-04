@@ -238,3 +238,16 @@ window.onclick = function(event) {
 		modal.style.display = "none";
 	}
 }
+
+// Append high scores
+
+function appendNewHighScore(parentElement) {
+	let newHighScore = document.createElement("p");
+	newHighScore.classList.add("score")
+	newHighScore.textContent = "I am a score";
+	parentElement.appendChild(newHighScore);
+	return newHighScore;
+}
+
+appendNewHighScore(document.getElementById("modal-content"));
+
