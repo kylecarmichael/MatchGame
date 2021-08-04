@@ -189,3 +189,34 @@ if (cardObjects != null) {
 		flipCardWhenClicked(cardObjects[i]);
 	}
 }
+
+// Reset the game.
+
+function playAgain() {
+	// Remove Children
+	let cardContainer = document.getElementById("card-container");
+	let child = cardContainer.lastElementChild;
+	while (child) {
+		cardContainer.removeChild(child);
+		child = cardContainer.lastElementChild;
+	}
+
+	// Reset scores
+	document.getElementById("flip-count").textContent = 0;
+	document.getElementById("match-count").textContent = 0;
+	counters = {
+		flips: 0,
+		matches: 0
+	}
+
+
+	let cardObjects =
+	createCards(document.getElementById("card-container"), shuffleCardImageClasses());
+
+	if (cardObjects != null) {
+		for (let i = 0; i < cardObjects.length; i++) {
+			flipCardWhenClicked(cardObjects[i]);
+		}
+	}
+
+}
