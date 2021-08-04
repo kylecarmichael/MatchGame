@@ -220,3 +220,21 @@ function playAgain() {
 	}
 
 }
+
+// Modal pop-up for High Score
+
+let modal = document.getElementById("myModal");
+let modalBtn = document.getElementById("modal-btn");
+let closeSpan = document.getElementsByClassName("close")[0];
+
+modalBtn.onclick = function() {
+	modal.style.display = "block";
+}
+closeSpan.onclick = function() {
+	modal.style.display = "none";
+}
+window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+}
