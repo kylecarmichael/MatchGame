@@ -132,7 +132,7 @@ h1 {
   line-height: 46px;
 
   vertical-align: middle;
-  background: #ded1f8;
+  background: #ded1f8ce;
   color: slateblue;
 
   transition: color .15s ease-in-out,background-color .15s ease-in-out;
