@@ -291,6 +291,7 @@ hS5dom.setAttributeNode(hS5att);
 
 // Local Storage for High Scores
 
+// For the arr of class names
 function buildScoreArr(){
 	let scoreArr = []
 	function scoreArrBuilder(num, repeats, title) {
@@ -313,26 +314,54 @@ let highScore4 = localStorage.getItem("highScore4");
 let highScore5 = localStorage.getItem("highScore5");
 
 // If it doesn't exist yet, set to zero (displayed as --)
-if(highScore1 == null) {
+if(highScore1 == null || highScore1 == undefined) {
 	highScore1 = 0;
 } 
-if(highScore2 == null) {
+if(highScore2 == null || highScore2 == undefined) {
 	highScore2 = 0;
 } 
-if(highScore3 == null) {
+if(highScore3 == null || highScore3 == undefined) {
 	highScore3 = 0;
 } 
-if(highScore4 == null) {
+if(highScore4 == null || highScore4 == undefined) {
 	highScore4 = 0;
 } 
-if(highScore5 == null) {
+if(highScore5 == null || highScore5 == undefined) {
 	highScore5 = 0;
 } 
 
+
 // Array for Scores
+
+// This doesn't work
+function highScoresArr1() {
+	let arr = ["16", "20", "28", "30", "32"];
+	console.log(arr);
+	return arr;
+}
+
+// This does??
 let highScoresArr = ["14", "20", "22", "30", "36"];
 
 
+// DON'T NEED ANY OF THIS (i think)
+// function scoreList(flips, matches) {
+// 	if (matches.innerText === "6") {
+// 		for (let i = 0; i < 5; i++){
+// 			if (flips.innerText < highScoresArr[i]) {
+// 				highScoresArr.splice(i, 1, flips);
+// 			} else if (highScoresArr[i] == null){
+// 				console.log("Flag me");
+// 			} else {
+// 				console.log("here");
+// 			}
+			
+// 		}
+// 		console.log("should look at your score now");
+// 	} else {
+// 		console.log("not done yet to log scores");
+// 	}
+// }
 
 
 
@@ -357,12 +386,6 @@ document.getElementById("modal-btn").addEventListener("click", updateHighScores 
 
 
 
-// function updateHS1() {
-// 	document.getElementsByClassName("high-score-1").innerHTML = highScore1;
-// 	let hS1 = localStorage.setItem("highScore1", highScores[0]);
-// 	console.log(hS1);
-// }
-
 
 
 
@@ -370,8 +393,8 @@ document.getElementById("modal-btn").addEventListener("click", updateHighScores 
 // score = local saved scores
 // newScore = flip-container
 
-function checkHighScore(score, newScore) {
-	for (let i = 1; i <= scoreContainer.children.length; i++) {
-		console.log("score loop: " + i);
-	}
-}
+// function checkHighScore(score, newScore) {
+// 	for (let i = 1; i <= scoreContainer.children.length; i++) {
+// 		console.log("score loop: " + i);
+// 	}
+// }
