@@ -242,6 +242,7 @@ window.onclick = function(event) {
 // Append high scores
 // NOTE: Here I thought it would look better to have the five top scores appended by default rather than add them sequentially
 
+// This creates the elements, adds the classes from an array built in buildScoreArr, default score is "--"
 function appendNewHighScore(parentElement, buildScoreArr) {
 	for(let i = 0; i < 5; i++){
 		let highScoreMessage = document.createElement("p");
@@ -252,7 +253,7 @@ function appendNewHighScore(parentElement, buildScoreArr) {
 		let newHighScore = document.createElement("span");
 		newHighScore.classList.add("score-num");
 		newHighScore.classList.add(buildScoreArr[i]);
-		newHighScore.textContent = "17";
+		newHighScore.innerText = "--";
 		highScoreMessage.appendChild(newHighScore);
 	}			
 }
@@ -261,16 +262,34 @@ let scoreContainer = document.getElementById("score-container");
 appendNewHighScore(scoreContainer, buildScoreArr());
 
 
+// Another Example of Tech Debt :| Added ids to all the bois 
+let hS1dom = document.getElementsByClassName("high-score-1")[0];
+let hS1att = document.createAttribute("id");
+hS1att.value = "high-score-1";
+hS1dom.setAttributeNode(hS1att);
+
+let hS2dom = document.getElementsByClassName("high-score-2")[0];
+let hS2att = document.createAttribute("id");
+hS2att.value = "high-score-2";
+hS2dom.setAttributeNode(hS2att);
+ 
+let hS3dom = document.getElementsByClassName("high-score-3")[0];
+let hS3att = document.createAttribute("id");
+hS3att.value = "high-score-3";
+hS3dom.setAttributeNode(hS3att);
+ 
+let hS4dom = document.getElementsByClassName("high-score-4")[0];
+let hS4att = document.createAttribute("id");
+hS4att.value = "high-score-4";
+hS4dom.setAttributeNode(hS4att);
+ 
+let hS5dom = document.getElementsByClassName("high-score-5")[0];
+let hS5att = document.createAttribute("id");
+hS5att.value = "high-score-5";
+hS5dom.setAttributeNode(hS5att);
+ 
+
 // Local Storage for High Scores
-
-// score = local saved scores
-// newScore = flip-container
-
-function checkHighScore(score, newScore) {
-	for (let i = 1; i <= scoreContainer.children.length; i++) {
-		console.log("score loop: " + i);
-	}
-}
 
 function buildScoreArr(){
 	let scoreArr = []
@@ -286,16 +305,6 @@ function buildScoreArr(){
 	return scoreArr;
 }
 
-
-
-// function scoreClassAdder(scoreNum, buildScoreArr) {
-
-// 	for (let i = 0; i < 5; i++) {
-// 		scoreNum.classList.add(buildScoreArr[i]);
-// 	}
-// }
-
-
 // This could probably go in a loop but (;-;)
 let highScore1 = localStorage.getItem("highScore1");
 let highScore2 = localStorage.getItem("highScore2");
@@ -306,5 +315,63 @@ let highScore5 = localStorage.getItem("highScore5");
 // If it doesn't exist yet, set to zero (displayed as --)
 if(highScore1 == null) {
 	highScore1 = 0;
+} 
+if(highScore2 == null) {
+	highScore2 = 0;
+} 
+if(highScore3 == null) {
+	highScore3 = 0;
+} 
+if(highScore4 == null) {
+	highScore4 = 0;
+} 
+if(highScore5 == null) {
+	highScore5 = 0;
+} 
 
+// Array for Scores
+let highScoresArr = ["14", "20", "22", "30", "36"];
+
+
+
+
+
+// click listener for high score btn
+document.getElementById("modal-btn").addEventListener("click", updateHighScores => {
+	localStorage.setItem("highScore1", highScoresArr[0]);
+	document.getElementById("high-score-1").innerText = highScore1;
+
+	localStorage.setItem("highScore2", highScoresArr[1]);
+	document.getElementById("high-score-2").innerText = highScore2;
+
+	localStorage.setItem("highScore3", highScoresArr[2]);
+	document.getElementById("high-score-3").innerText = highScore3;
+
+	localStorage.setItem("highScore4", highScoresArr[3]);
+	document.getElementById("high-score-4").innerText = highScore4;
+
+	localStorage.setItem("highScore5", highScoresArr[4]);
+	document.getElementById("high-score-5").innerText = highScore5;
+	
+});
+
+
+
+// function updateHS1() {
+// 	document.getElementsByClassName("high-score-1").innerHTML = highScore1;
+// 	let hS1 = localStorage.setItem("highScore1", highScores[0]);
+// 	console.log(hS1);
+// }
+
+
+
+
+
+// score = local saved scores
+// newScore = flip-container
+
+function checkHighScore(score, newScore) {
+	for (let i = 1; i <= scoreContainer.children.length; i++) {
+		console.log("score loop: " + i);
+	}
 }
