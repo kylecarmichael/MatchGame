@@ -242,22 +242,29 @@ window.onclick = function(event) {
 // Append high scores
 // NOTE: Here I thought it would look better to have the five top scores appended by default rather than add them sequentially
 
-function appendNewHighScore(parentElement) {
+function appendNewHighScore(parentElement, buildScoreArr) {
 	for(let i = 0; i < 5; i++){
-		let newHighScore = document.createElement("p");
-		newHighScore.classList.add("score")
-		newHighScore.textContent = i+ 1 + " - Flip count: ";
-		parentElement.appendChild(newHighScore);
+		let highScoreMessage = document.createElement("p");
+		highScoreMessage.classList.add("score")
+		highScoreMessage.textContent = i + 1 + " - Flip count: ";
+		parentElement.appendChild(highScoreMessage);
+
+		let newHighScore = document.createElement("span");
+		newHighScore.classList.add("score-num");
+		newHighScore.classList.add(buildScoreArr[i]);
+		newHighScore.textContent = "17";
+		highScoreMessage.appendChild(newHighScore);
 	}			
 }
 
-let scoreContainer = document.getElementById("score-container")
-
-appendNewHighScore(scoreContainer);
+let scoreContainer = document.getElementById("score-container");
+appendNewHighScore(scoreContainer, buildScoreArr());
 
 
 // Local Storage for High Scores
 
+// score = local saved scores
+// newScore = flip-container
 
 function checkHighScore(score, newScore) {
 	for (let i = 1; i <= scoreContainer.children.length; i++) {
@@ -265,9 +272,39 @@ function checkHighScore(score, newScore) {
 	}
 }
 
+function buildScoreArr(){
+	let scoreArr = []
+	function scoreArrBuilder(num, repeats, title) {
+		for (let i = 1; i <= num; i++) {
+			for (let j = 1; j <= repeats; j++) {
+				scoreArr.push(title + i);
+			}
+		}
+		return scoreArr;
+	}
+	scoreArrBuilder(5, 1, "high-score-");
+	return scoreArr;
+}
 
 
 
-/*
-let localHighScore = localStorage.getItem
-*/
+// function scoreClassAdder(scoreNum, buildScoreArr) {
+
+// 	for (let i = 0; i < 5; i++) {
+// 		scoreNum.classList.add(buildScoreArr[i]);
+// 	}
+// }
+
+
+// This could probably go in a loop but (;-;)
+let highScore1 = localStorage.getItem("highScore1");
+let highScore2 = localStorage.getItem("highScore2");
+let highScore3 = localStorage.getItem("highScore3");
+let highScore4 = localStorage.getItem("highScore4");
+let highScore5 = localStorage.getItem("highScore5");
+
+// If it doesn't exist yet, set to zero (displayed as --)
+if(highScore1 == null) {
+	highScore1 = 0;
+
+}
