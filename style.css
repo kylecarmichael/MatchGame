@@ -112,7 +112,9 @@ h1 {
 
 /* Glow class to be added on successful match */
 .glow {
-	box-shadow: 0 0 10px 2px rgb(233, 215, 255);
+	box-shadow: 
+  0 0 8px 2px #a37dcf,
+  0 0 15px 8px #ded1f8;
 }
 
 

@@ -172,7 +172,7 @@ function onCardFlipped(newlyFlippedCard) {
 		setTimeout(function () {
 			lastCardClass.remove("glow");
 			newCardClass.remove("glow");
-		}, 1000);
+		}, 700);
 
 		// Reset 'lastCardFlipped'.
 		lastCardFlipped = null;
