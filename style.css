@@ -214,14 +214,33 @@ h3.high-score {
   text-shadow: 2px 2px #a37dcf;
 }
 
-/* 
-.high-score-1 {}
+/* An attempt at a microgravity animation for the cards since its in space */
 
-.high-score-2 {}
+.floating-left{
+  -webkit-transition: transform 100s linear;
+  -moz-transition: transform 100s linear;
+  transition: transform 45s linear;
+  transform: translate(-35%, 0%);
+}
 
-.high-score-3 {}
+.floating-right{
+  -webkit-transition: transform 100s linear;
+  -moz-transition: transform 100s linear;
+  transition: transform 45s linear;
+  transform: skew(8deg);  
+  transform: translateX(35%)
+}
 
-.high-score-4 {}
+.floating-up{
+  -webkit-transition: transform 100s linear;
+  -moz-transition: transform 100s linear;
+  transition: transform 45s linear;
+  transform: translateY(-40%)
+}
 
-.high-score-5 {} 
-*/
+.floating-down{
+  -webkit-transition: transform 100s linear;
+  -moz-transition: transform 100s linear;
+  transition: transform 45s linear;
+  transform: translateY(40%)
+}

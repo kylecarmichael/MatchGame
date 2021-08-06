@@ -193,6 +193,9 @@ if (cardObjects != null) {
 // Reset the game.
 
 function playAgain() {
+	// Play Audio
+	clickAudio.play();
+
 	// Remove Children
 	let cardContainer = document.getElementById("card-container");
 	let child = cardContainer.lastElementChild;
@@ -229,9 +232,11 @@ let closeSpan = document.getElementsByClassName("close")[0];
 
 modalBtn.onclick = function() {
 	modal.style.display = "block";
+	clickAudio.play();
 }
 closeSpan.onclick = function() {
 	modal.style.display = "none";
+	clickAudio.play();
 }
 window.onclick = function(event) {
 	if (event.target == modal) {
@@ -412,4 +417,24 @@ function updateHighScores() {
 
 // Get flip value on win
 // Switch cases for flip vs. high scores
+// click audio on btn press
 
+
+// Attempt at moving cards in microgravity
+
+for(let i = 0; i < 12; i++) {
+	document.getElementsByClassName("card")[i].addEventListener('click', toggleGravity);
+}
+
+var container = document.getElementsByClassName("card")[0];
+
+function toggleGravity(){
+	if (doCardsMatch) {
+
+	}
+	container.classList.add('floating-');
+	let currentDir = container.classList[4];
+	const dirs = ['up','down','left','right'].filter(v => v !== currentDir);
+	const dir = dirs[Math.floor(Math.random() * dirs.length)];
+	container.classList[3] = "floating-" + dir
+}
