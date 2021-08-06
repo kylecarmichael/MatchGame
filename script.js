@@ -316,19 +316,33 @@ let highScore5 = localStorage.getItem("highScore5");
 // If it doesn't exist yet, set to zero (displayed as --)
 if(highScore1 == null || highScore1 == undefined) {
 	highScore1 = 0;
-} 
+} else {
+	highScore1 = parseInt(highScore1, 10);
+}
+
 if(highScore2 == null || highScore2 == undefined) {
 	highScore2 = 0;
-} 
+} else {
+	highScore2 = parseInt(highScore2, 10);
+}
+
 if(highScore3 == null || highScore3 == undefined) {
 	highScore3 = 0;
-} 
+} else {
+	highScore3 = parseInt(highScore3, 10);
+}
+
 if(highScore4 == null || highScore4 == undefined) {
 	highScore4 = 0;
-} 
+} else {
+	highScore4 = parseInt(highScore4, 10);
+}
+
 if(highScore5 == null || highScore5 == undefined) {
 	highScore5 = 0;
-} 
+} else {
+	highScore5 = parseInt(highScore5, 10);
+}
 
 
 // Array for Scores
@@ -340,8 +354,16 @@ function highScoresArr1() {
 	return arr;
 }
 
+// scoreArrFromLocal
+let highScoresArr = [];
+highScoresArr.push(highScore1);
+highScoresArr.push(highScore2);
+highScoresArr.push(highScore3);
+highScoresArr.push(highScore4);
+highScoresArr.push(highScore5);
+
 // This does??
-let highScoresArr = ["14", "20", "22", "30", "36"];
+// let highScoresArr3 = ["14", "20", "22", "30", "36"];
 
 
 // DON'T NEED ANY OF THIS (i think)
@@ -366,7 +388,9 @@ let highScoresArr = ["14", "20", "22", "30", "36"];
 
 
 // click listener for high score btn
-document.getElementById("modal-btn").addEventListener("click", updateHighScores => {
+document.getElementById("modal-btn").addEventListener("click", updateHighScores);
+
+function updateHighScores() {
 	localStorage.setItem("highScore1", highScoresArr[0]);
 	document.getElementById("high-score-1").innerText = highScore1;
 
@@ -382,19 +406,10 @@ document.getElementById("modal-btn").addEventListener("click", updateHighScores 
 	localStorage.setItem("highScore5", highScoresArr[4]);
 	document.getElementById("high-score-5").innerText = highScore5;
 	
-});
+}
 
+// TODO:
 
+// Get flip value on win
+// Switch cases for flip vs. high scores
 
-
-
-
-
-// score = local saved scores
-// newScore = flip-container
-
-// function checkHighScore(score, newScore) {
-// 	for (let i = 1; i <= scoreContainer.children.length; i++) {
-// 		console.log("score loop: " + i);
-// 	}
-// }
