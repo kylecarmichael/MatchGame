@@ -240,14 +240,34 @@ window.onclick = function(event) {
 }
 
 // Append high scores
+// NOTE: Here I thought it would look better to have the five top scores appended by default rather than add them sequentially
 
 function appendNewHighScore(parentElement) {
-	let newHighScore = document.createElement("p");
-	newHighScore.classList.add("score")
-	newHighScore.textContent = "I am a score";
-	parentElement.appendChild(newHighScore);
-	return newHighScore;
+	for(let i = 0; i < 5; i++){
+		let newHighScore = document.createElement("p");
+		newHighScore.classList.add("score")
+		newHighScore.textContent = i+ 1 + " - Flip count: ";
+		parentElement.appendChild(newHighScore);
+	}			
 }
 
-appendNewHighScore(document.getElementById("modal-content"));
+let scoreContainer = document.getElementById("score-container")
 
+appendNewHighScore(scoreContainer);
+
+
+// Local Storage for High Scores
+
+
+function checkHighScore(score, newScore) {
+	for (let i = 1; i <= scoreContainer.children.length; i++) {
+		console.log("score loop: " + i);
+	}
+}
+
+
+
+
+/*
+let localHighScore = localStorage.getItem
+*/
